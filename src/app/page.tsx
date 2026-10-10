@@ -3,17 +3,28 @@ import Hero from "@/components/Home/Hero";
 import Marquee from "@/components/Home/Marquee";
 import Todaydicreased from "@/components/Home/Todaydicreased";
 import TodayIncreased from "@/components/Home/TodayIncreased";
+import { MarqueeData, SingleCat } from "@/Type/type";
 import React from "react";
 
-export default function page() {
+export default async function page() {
+  const res = await fetch(`${process.env.API_URL}/api/bazardor/products`);
+  const data:MarqueeData[] = await res.json();
+  console.log(data);
+  const [categoriesRes, productsRes] = await Promise.all([
+    fetch(`${process.env.API_URL}/api/bazardor/categories`,{next:{revalidate:300}}),
+    fetch(`${process.env.API_URL}/api/bazardor/products`,{next:{revalidate:300}})
+  ])
+  const categoriesData:SingleCat[] = await categoriesRes.json(); 
+  const productsData:MarqueeData[] = await productsRes.json(); 
+
   return (
     <>
-      <Marquee />
+      <Marquee data={data}/>
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-6">
         <Hero />
-        <TodayIncreased />
-        <Todaydicreased />
-        <AllProducts />
+        <TodayIncreased data={productsData}/>
+        <Todaydicreased data={productsData}/>
+        <AllProducts data={productsData}/>
       </div>
     </>
   );
