@@ -7,9 +7,6 @@ import { MarqueeData, SingleCat } from "@/Type/type";
 import React from "react";
 
 export default async function page() {
-  const res = await fetch(`${process.env.API_URL}/api/bazardor/products`);
-  const data:MarqueeData[] = await res.json();
-  console.log(data);
   const [categoriesRes, productsRes] = await Promise.all([
     fetch(`${process.env.API_URL}/api/bazardor/categories`,{next:{revalidate:300}}),
     fetch(`${process.env.API_URL}/api/bazardor/products`,{next:{revalidate:300}})
@@ -19,7 +16,6 @@ export default async function page() {
 
   return (
     <>
-      <Marquee data={data}/>
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-6">
         <Hero />
         <TodayIncreased data={productsData}/>

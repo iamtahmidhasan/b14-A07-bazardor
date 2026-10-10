@@ -2,8 +2,10 @@ import { MarqueeData } from "@/Type/type";
 import MarqueeText from "react-marquee-text"
 import "react-marquee-text/dist/styles.css"
 
-export default async function Marquee({ data }: { data: MarqueeData[] }) {
-    console.log(data)
+export default async function Marquee() {
+    const res = await fetch(`${process.env.API_URL}/api/bazardor/products`);
+  const data:MarqueeData[] = await res.json();
+  console.log(data);
   return (
     <div className="ticker overflow-hidden border-b border-base-300 bg-base-100" role="marquee" aria-label="আজকের দাম পরিবর্তনের তালিকা">
         <div className="ticker-track">
