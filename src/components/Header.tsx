@@ -1,10 +1,20 @@
 import Link from "next/link";
 
-export default function Header() {
+interface SingleCat{
+    id: string,
+    slug: string,
+    nameBn: string,
+    icon: string
+}
+export default async function Header() {
+  const res = await fetch(`${process.env.API_URL}/api/bazardor/categories`);
+  const data = await res.json();
+  console.log(data);
+
   return (
     <header className="sticky top-0 z-40 border-b border-base-300 bg-base-100/95 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4 py-3">
-        < Link className="flex items-center gap-2" href="/">
+        <Link className="flex items-center gap-2" href="/">
           <span
             aria-hidden="true"
             className="grid size-10 place-items-center rounded-xl bg-primary text-lg text-primary-content"
@@ -12,7 +22,9 @@ export default function Header() {
             🛒
           </span>
           <span className="leading-tight">
-            <span className="block text-xl font-bold tracking-tight">বাজার দর</span>
+            <span className="block text-xl font-bold tracking-tight">
+              বাজার দর
+            </span>
             <span className="block text-xs text-base-content/60">
               শনিবার, ১০ অক্টোবর, ২০২৬
             </span>
@@ -28,72 +40,23 @@ export default function Header() {
         </div>
       </div>
       <div className="border-t border-base-200 bg-base-100">
-        <nav aria-label="পণ্য ক্যাটাগরি" className="mx-auto w-full max-w-6xl px-4">
+        <nav
+          aria-label="পণ্য ক্যাটাগরি"
+          className="mx-auto w-full max-w-6xl px-4"
+        >
           <ul className="flex items-center gap-1 overflow-x-auto py-2 text-sm">
-            <li className="shrink-0">
-              <a
-                className="btn btn-sm whitespace-nowrap btn-ghost"
-                href="/category/chal"
-              >
-                <span aria-hidden="true">🍚</span>চাল
-              </a>
-            </li>
-            <li className="shrink-0">
-              <a
-                className="btn btn-sm whitespace-nowrap btn-ghost"
-                href="/category/dal"
-              >
-                <span aria-hidden="true">🫘</span>ডাল
-              </a>
-            </li>
-            <li className="shrink-0">
-              <a
-                className="btn btn-sm whitespace-nowrap btn-ghost"
-                href="/category/tel"
-              >
-                <span aria-hidden="true">🛢️</span>তেল
-              </a>
-            </li>
-            <li className="shrink-0">
-              <a
-                className="btn btn-sm whitespace-nowrap btn-ghost"
-                href="/category/sobji"
-              >
-                <span aria-hidden="true">🥬</span>সবজি
-              </a>
-            </li>
-            <li className="shrink-0">
-              <a
-                className="btn btn-sm whitespace-nowrap btn-ghost"
-                href="/category/mach"
-              >
-                <span aria-hidden="true">🐟</span>মাছ
-              </a>
-            </li>
-            <li className="shrink-0">
-              <a
-                className="btn btn-sm whitespace-nowrap btn-ghost"
-                href="/category/mangsho"
-              >
-                <span aria-hidden="true">🍗</span>মাংস
-              </a>
-            </li>
-            <li className="shrink-0">
-              <a
-                className="btn btn-sm whitespace-nowrap btn-ghost"
-                href="/category/dim-dui"
-              >
-                <span aria-hidden="true">🥛</span>ডিম-দুধ
-              </a>
-            </li>
-            <li className="shrink-0">
-              <a
-                className="btn btn-sm whitespace-nowrap btn-ghost"
-                href="/category/mosla"
-              >
-                <span aria-hidden="true">🌶️</span>মসলা
-              </a>
-            </li>
+            {data?.map((item:SingleCat) => {
+              return (
+                <li className="shrink-0" key={item.id}>
+                  <a
+                    className="btn btn-sm whitespace-nowrap btn-ghost"
+                    href={`/category/${item.slug}`}
+                  >
+                    <span aria-hidden="true">{item.icon}</span>{item.nameBn}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>
