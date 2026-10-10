@@ -15,7 +15,12 @@ export interface MarqueeData{
       dir: string,
       pct: number
     },
-    markets: string[]
+    markets: {
+      market: string,
+      division: string,
+      min: number,
+      max: number
+    }[]
 }
 export interface SingleCat{
     id: string,
