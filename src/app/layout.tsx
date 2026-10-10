@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-screen flex flex-col bg-base-200" data-theme="mytheme">
         <Header/>
         <Marquee />
-        <main className="min-h-full">
+        <main className="flex-1">
         {children}
 
         </main>

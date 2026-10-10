@@ -48,12 +48,12 @@ export default async function Header() {
             {data?.map((item:SingleCat) => {
               return (
                 <li className="shrink-0" key={item.id}>
-                  <a
+                  <Link
                     className="btn btn-sm whitespace-nowrap btn-ghost"
                     href={`/category/${item.slug}`}
                   >
                     <span aria-hidden="true">{item.icon}</span>{item.nameBn}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
