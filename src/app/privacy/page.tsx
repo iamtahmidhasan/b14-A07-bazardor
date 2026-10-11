@@ -12,19 +12,19 @@ const sections = [
     title: "1. Introduction",
     content: (
       <>
-        Welcome to Shopora. We value your privacy and are committed to
+        Welcome to বাজার দর. We value your privacy and are committed to
         protecting your personal information. This Privacy Policy explains how
         we collect, use, store, and protect your information when you visit our
         website, create an account, or purchase products from us.
         <div className="mt-4 space-y-1">
           <p>
-            <strong>Website:</strong> www.shopora.example
+            <strong>Website:</strong> www.bazardor.example
           </p>
           <p>
-            <strong>Company:</strong> Shopora Online Store
+            <strong>Company:</strong> বাজার দর
           </p>
           <p>
-            <strong>Email:</strong> privacy@shopora.example
+            <strong>Email:</strong> privacy@bazardor.example
           </p>
         </div>
       </>
@@ -171,7 +171,7 @@ export default async function PrivacyPolicy() {
         {/* Header */}
         <header className="mb-10 text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-            Shopora Online Store
+            বাজার দর
           </p>
 
           <h1 className="text-3xl font-bold tracking-tight sm:text-5xl">
@@ -231,26 +231,26 @@ export default async function PrivacyPolicy() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-lg bg-base-200 p-4">
                 <p className="text-sm text-base-content/60">Store Name</p>
-                <p className="mt-1 font-semibold">Shopora Online Store</p>
+                <p className="mt-1 font-semibold">বাজার দর</p>
               </div>
 
               <div className="rounded-lg bg-base-200 p-4">
                 <p className="text-sm text-base-content/60">Privacy Email</p>
                 <a
-                  href="mailto:privacy@shopora.example"
+                  href="mailto:privacy@bazardor.example"
                   className="mt-1 block font-semibold text-primary hover:underline"
                 >
-                  privacy@shopora.example
+                  privacy@bazardor.example
                 </a>
               </div>
 
               <div className="rounded-lg bg-base-200 p-4">
                 <p className="text-sm text-base-content/60">Support Email</p>
                 <a
-                  href="mailto:support@shopora.example"
+                  href="mailto:support@bazardor.example"
                   className="mt-1 block font-semibold text-primary hover:underline"
                 >
-                  support@shopora.example
+                  support@bazardor.example
                 </a>
               </div>
 
@@ -271,9 +271,9 @@ export default async function PrivacyPolicy() {
 
         {/* Footer */}
         <footer className="mt-10 text-center text-sm text-base-content/60">
-          <p>Thank you for trusting Shopora with your shopping experience.</p>
+          <p>Thank you for trusting বাজার দর with your shopping experience.</p>
           <p className="mt-2">
-            © {currentYear} Shopora Online Store. All rights reserved.
+            © {currentYear} বাজার দর. All rights reserved.
           </p>
         </footer>
       </div>
