@@ -69,7 +69,7 @@ export default function Header() {
               বাজার দর
             </span>
             <span className="block text-xs text-base-content/60">
-              শনিবার, ১০ অক্টোবর, ২০২৬
+              Bazardor
             </span>
           </span>
         </Link>

@@ -12,7 +12,7 @@ const sections = [
     title: "1. Introduction",
     content: (
       <>
-        Welcome to বাজার দর. We value your privacy and are committed to
+        Welcome to Bazardor (বাজার দর). We value your privacy and are committed to
         protecting your personal information. This Privacy Policy explains how
         we collect, use, store, and protect your information when you visit our
         website, create an account, or purchase products from us.
@@ -21,7 +21,7 @@ const sections = [
             <strong>Website:</strong> www.bazardor.example
           </p>
           <p>
-            <strong>Company:</strong> বাজার দর
+            <strong>Company:</strong> Bazardor (বাজার দর)
           </p>
           <p>
             <strong>Email:</strong> privacy@bazardor.example
@@ -171,7 +171,7 @@ export default async function PrivacyPolicy() {
         {/* Header */}
         <header className="mb-10 text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-            বাজার দর
+            Bazardor (বাজার দর)
           </p>
 
           <h1 className="text-3xl font-bold tracking-tight sm:text-5xl">
@@ -231,7 +231,7 @@ export default async function PrivacyPolicy() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="rounded-lg bg-base-200 p-4">
                 <p className="text-sm text-base-content/60">Store Name</p>
-                <p className="mt-1 font-semibold">বাজার দর</p>
+                <p className="mt-1 font-semibold">Bazardor (বাজার দর)</p>
               </div>
 
               <div className="rounded-lg bg-base-200 p-4">
@@ -271,9 +271,9 @@ export default async function PrivacyPolicy() {
 
         {/* Footer */}
         <footer className="mt-10 text-center text-sm text-base-content/60">
-          <p>Thank you for trusting বাজার দর with your shopping experience.</p>
+          <p>Thank you for trusting Bazardor (বাজার দর) with your shopping experience.</p>
           <p className="mt-2">
-            © {currentYear} বাজার দর. All rights reserved.
+            © {currentYear} Bazardor (বাজার দর). All rights reserved.
           </p>
         </footer>
       </div>

@@ -19,12 +19,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  applicationName: "বাজার দর",
-  title: "বাজার দর — আজকের দাঁড়ির দাম",
+  applicationName: "Bazardor",
+  title: "Bazardor — বাজার দর",
   description: "চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার আজকের দাম, বাজারভিত্তিক তুলনা ও দামের পরিবর্তন এক জায়গায়।",
   openGraph: {
-    siteName: "বাজার দর",
-    title: "বাজার দর — আজকের দাঁড়ির দাম",
+    siteName: "Bazardor",
+    title: "Bazardor — বাজার দর",
     description: "চাল, ডাল, তেল, সবজি, মাছ, মাংস, ডিম ও মসলার আজকের দাম, বাজারভিত্তিক তুলনা ও দামের পরিবর্তন এক জায়গায়।",
     type: "website",
   },
