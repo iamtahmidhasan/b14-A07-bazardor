@@ -1,4 +1,11 @@
 import React from "react";
+import { cacheLife } from "next/cache";
+
+async function getCurrentYear() {
+  "use cache";
+  cacheLife("max");
+  return new Date().getFullYear();
+}
 
 const sections = [
   {
@@ -155,7 +162,9 @@ const sections = [
   },
 ];
 
-export default function PrivacyPolicy() {
+export default async function PrivacyPolicy() {
+  const currentYear = await getCurrentYear();
+
   return (
     <main className="min-h-screen bg-base-200 px-4 py-12 text-base-content sm:px-6 lg:py-16">
       <div className="mx-auto max-w-4xl">
@@ -264,8 +273,7 @@ export default function PrivacyPolicy() {
         <footer className="mt-10 text-center text-sm text-base-content/60">
           <p>Thank you for trusting Shopora with your shopping experience.</p>
           <p className="mt-2">
-            © {new Date().getFullYear()} Shopora Online Store. All rights
-            reserved.
+            © {currentYear} Shopora Online Store. All rights reserved.
           </p>
         </footer>
       </div>
