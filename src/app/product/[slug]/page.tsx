@@ -1,9 +1,9 @@
 import { MarqueeData } from "@/Type/type";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import React from "react";
+import { Suspense } from "react";
 
-export default async function page({
+async function ProductContent({
   params,
 }: {
   params: Promise<{ slug: string }>;
@@ -147,5 +147,27 @@ export default async function page({
         </a>
       </div>
     </div>
+  );
+}
+
+function ProductSkeleton() {
+  return (
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6">
+      <div className="skeleton h-6 w-64" />
+      <div className="skeleton h-32 w-full rounded-2xl" />
+      <div className="skeleton h-64 w-full rounded-2xl" />
+    </div>
+  );
+}
+
+export default function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  return (
+    <Suspense fallback={<ProductSkeleton />}>
+      <ProductContent params={params} />
+    </Suspense>
   );
 }

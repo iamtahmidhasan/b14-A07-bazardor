@@ -1,8 +1,12 @@
 import { MarqueeData } from "@/Type/type";
 import Link from "next/link";
-import React from "react";
+import { Suspense } from "react";
 
-export default async function page({ params }: { params: Promise<{ slug: string }> }) {
+async function CategoryContent({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const res = await fetch(
     `${process.env.API_URL}/api/bazardor/products?category=${slug}`,
@@ -108,5 +112,30 @@ export default async function page({ params }: { params: Promise<{ slug: string 
         </ul>
       </div>
     </div>
+  );
+}
+
+function CategorySkeleton() {
+  return (
+    <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-4 py-6">
+      <div className="skeleton h-28 w-full rounded-2xl" />
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {Array.from({ length: 6 }).map((_, index) => (
+          <div key={index} className="skeleton h-36 w-full rounded-2xl" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function Page({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  return (
+    <Suspense fallback={<CategorySkeleton />}>
+      <CategoryContent params={params} />
+    </Suspense>
   );
 }
